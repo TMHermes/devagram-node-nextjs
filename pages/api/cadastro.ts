@@ -11,6 +11,7 @@ const handler = nc()
     .use(upload.single('file'))
     .post(async (req : NextApiRequest, res : NextApiResponse<RespostaPadraoMsg>) => {
         try{
+            console.log('cadastro endpoint', req.body);
             const usuario = req.body as CadastroRequisicao;
 
             if(!usuario.nome || usuario.nome.length < 2){
@@ -50,7 +51,6 @@ const handler = nc()
             return res.status(500).json({erro : 'Erro ao cadastrar usuario'});
         }
 });
-
 export const config = {
     api: {
         bodyParser : false
