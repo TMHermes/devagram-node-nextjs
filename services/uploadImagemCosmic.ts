@@ -21,7 +21,7 @@ const bucketPublicacoes = Cosmic.bucket({
 const storage = multer.memoryStorage();
 const upload = multer({storage : storage});
 
-const uploadImagemCosmic = async(req : any) => {
+const uploadImagemCosmic = async (req : any) => {
     console.log('uploadImagemCosmic', req);
     if(req?.file?.originalname){
         const media_object = {
