@@ -4,7 +4,7 @@ import nc from 'next-connect';
 import {upload, uploadImagemCosmic} from '../../services/uploadImagemCosmic';
 import {conectarMongoDB} from '../../middlewares/conectarMongoDB';
 import {validarTokenJWT} from '../../middlewares/validarTokenJWT';
-import {PublicaoModel} from '../../models/PublicacaoModel';
+import {PublicacaoModel} from '../../models/PublicacaoModel';
 import {UsuarioModel} from '../../models/UsuarioModel';
 
 const handler = nc()
@@ -43,7 +43,7 @@ const handler = nc()
                 data : new Date()
             }
 
-            await PublicaoModel.create(publicacao);
+            await PublicacaoModel.create(publicacao);
             return res.status(200).json({erro : 'Publicacao criada com sucesso'});
         }catch(e){
             console.log(e);

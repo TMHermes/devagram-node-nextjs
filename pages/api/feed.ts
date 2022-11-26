@@ -3,7 +3,7 @@ import type {RespostaPadraoMsg} from '../../types/RespostaPadraoMsg';
 import {validarTokenJWT} from '../../middlewares/validarTokenJWT';
 import {conectarMongoDB} from '../../middlewares/conectarMongoDB';
 import { UsuarioModel } from '../../models/UsuarioModel';
-import { PublicaoModel } from '../../models/PublicacaoModel';
+import { PublicacaoModel } from '../../models/PublicacaoModel';
 
 const feedEndpoint = async (req : NextApiRequest, res : NextApiResponse<RespostaPadraoMsg | any>) => {
     try{
@@ -15,7 +15,7 @@ const feedEndpoint = async (req : NextApiRequest, res : NextApiResponse<Resposta
                     res.status(400).json({erro : 'Usuario nao encontrado'});
                 }
             
-                const publicacoes = await PublicaoModel
+                const publicacoes = await PublicacaoModel
                     .find({idUsuario : usuario.id})
                     .sort({data : -1});
 
